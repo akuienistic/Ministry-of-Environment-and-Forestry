@@ -214,31 +214,11 @@ const Index = () => {
                       <span>{leader.since}</span>
                     </div>
                   </div>
-                  {leader.credential && (
-                    <div className="mt-2 flex items-center gap-1 text-xs text-amber-600">
-                      <Award size={12} />
-                      <span>{leader.credential}</span>
-                    </div>
-                  )}
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <div className="mt-12 p-6 rounded-xl bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20 max-w-3xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-                <Users className="text-primary" size={24} />
-              </div>
-              <div className="text-center md:text-left">
-                <h3 className="font-heading text-lg font-bold text-foreground mb-1">Join Our Mission</h3>
-                <p className="font-body text-sm text-muted-foreground">
-                  The Ministry actively seeks passionate professionals to help conserve South Sudan's unique
-                  environment.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
       <section className="py-16">
