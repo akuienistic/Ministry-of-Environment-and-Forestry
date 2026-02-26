@@ -47,7 +47,7 @@ const Footer = () => {
       </div>
 
       <div className="border-t border-primary-foreground/20">
-        <div className="container py-4 text-center text-xs font-body text-primary-foreground/70 space-y-1">
+        <div className="container my-8 text-center text-xs font-body text-primary-foreground/70 space-y-1">
           <p>© {new Date().getFullYear()} Ministry of Environment and Forestry – South Sudan</p>
           <p>
             Designed and built by{" "}
@@ -55,7 +55,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/simon-akuien-atem-710895290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-primary-foreground transition-colors"
+              className="text-primary-foreground/100 transition-colors"
             >
               Simon Star Tech
             </a>
