@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Trees, Droplets, CloudSun, Leaf, Landmark, Scale } from "lucide-react";
 import natureBanner from "@/assets/nature-banner.jpg";
 
@@ -7,31 +8,37 @@ const directorates = [
     icon: Trees,
     name: "Directorate of Forestry",
     description: "Responsible for the management, conservation, and sustainable utilization of South Sudan's forest resources. Oversees reforestation programs, forest inventory, and community forestry initiatives.",
+    type: "Conservation",
   },
   {
     icon: Droplets,
     name: "Directorate of Wetlands and Biodiversity",
     description: "Charged with the protection of wetland ecosystems including the Sudd, biodiversity conservation, and implementation of the National Biodiversity Strategy and Action Plan (NBSAP 2018–2027).",
+    type: "Conservation",
   },
   {
     icon: CloudSun,
     name: "Directorate of Climate Change",
     description: "Coordinates South Sudan's response to climate change including adaptation, mitigation strategies, and UNFCCC reporting. Manages the National Adaptation Programme of Action (NAPA).",
+    type: "Climate",
   },
   {
     icon: Leaf,
     name: "Directorate of Environmental Planning",
     description: "Oversees Environmental Impact Assessments (EIA), environmental audits, and ensures that development projects comply with environmental regulations and standards.",
+    type: "Policy",
   },
   {
     icon: Landmark,
     name: "Directorate of Administration and Finance",
     description: "Manages the Ministry's administrative functions, human resources, financial planning, and budgetary allocations to ensure effective operations.",
+    type: "Administrative",
   },
   {
     icon: Scale,
     name: "Directorate of Policy and Legal Affairs",
     description: "Develops environmental policies, legislation, and regulations. Ensures implementation of the National Environment Policy 2015–2025 and coordinates with legal bodies.",
+    type: "Policy",
   },
 ];
 
@@ -54,15 +61,30 @@ const Directorates = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {directorates.map((dir) => (
-              <Card key={dir.name} className="border-border hover:shadow-lg transition-shadow">
+              <Card key={dir.name} className="border-border hover:shadow-lg transition-shadow group">
                 <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
                       <dir.icon className="text-primary" size={24} />
                     </div>
-                    <h3 className="font-heading text-lg font-bold text-foreground">{dir.name}</h3>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1 flex-wrap">
+                        <h3 className="font-heading text-lg font-bold text-foreground">{dir.name}</h3>
+                        <Badge 
+                          variant="outline" 
+                          className={`text-xs font-body ${
+                            dir.type === 'Conservation' ? 'border-green-500 text-green-600' :
+                            dir.type === 'Climate' ? 'border-blue-500 text-blue-600' :
+                            dir.type === 'Policy' ? 'border-purple-500 text-purple-600' :
+                            'border-amber-500 text-amber-600'
+                          }`}
+                        >
+                          {dir.type}
+                        </Badge>
+                      </div>
+                      <p className="font-body text-sm text-muted-foreground leading-relaxed">{dir.description}</p>
+                    </div>
                   </div>
-                  <p className="font-body text-sm text-muted-foreground leading-relaxed">{dir.description}</p>
                 </CardContent>
               </Card>
             ))}
