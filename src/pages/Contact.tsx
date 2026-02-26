@@ -34,16 +34,25 @@ const Contact = () => {
     setSubmitting(false);
     reset();
     toast({
-      title: "✅ Message Sent Successfully",
-      description: `Thank you, ${data.name}. We will respond to your inquiry shortly.`,
+      title: "Message Sent Successfully",
+      description: (
+        <div className="flex items-center gap-2 mt-1">
+          <CheckCircle className="h-4 w-4 text-green-500 shrink-0" />
+          <span>Thank you, {data.name}. We will respond to your inquiry shortly.</span>
+        </div>
+      ),
     });
   };
 
   const onError = () => {
     toast({
-      title: "⚠️ Form Validation Error",
-      description: "Please correct the highlighted fields before submitting.",
-      variant: "destructive",
+      title: "Form Validation Error",
+      description: (
+        <div className="flex items-center gap-2 mt-1">
+          <AlertCircle className="h-4 w-4 text-red-500 shrink-0" />
+          <span>Please correct the highlighted fields before submitting.</span>
+        </div>
+      ),
     });
   };
 
